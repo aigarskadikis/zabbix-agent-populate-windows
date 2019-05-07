@@ -1,13 +1,15 @@
 @echo off
-set dest=c:\zabbixo\another\
+set dest=c:\zabbix
 
 setlocal EnableDelayedExpansion
 
 sc query "Zabbix Agent" > nul 2>&1
-if !errorlevel!==0 (
+if not !errorlevel!==0 (
 
+rem create base dirrectory
 if not exist "%dest%" mkdir "%dest%"
 
+rem create directory for dynamics
 if not exist "%dest%\zabbix_agentd.conf.d" mkdir "%dest%\zabbix_agentd.conf.d"
 
 rem install all custom variables
@@ -57,9 +59,12 @@ echo setting log file destination as "%%z\zabbix_agentd.conf.d"
 )
 )
 
+"%dest%\zabbix_agentd.exe" -c "%dest%\zabbix_agentd.conf" --install
+
 ) else echo "%dest%\zabbix_agentd.conf" does not exist
 
 
 ) else echo Zabbix Agent already exist
 
 endlocal
+pause

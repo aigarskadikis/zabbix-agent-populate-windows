@@ -60,9 +60,7 @@ install-zabbix-agent-flexible.cmd
 
 Set dynamics (can be populated through group policy):
 ```
-echo Server=ip.or.dns.address> c:\zabbix\zabbix_agentd.conf.d\Server.conf
-echo ServerActive=ip.or.dns.address> c:\zabbix\zabbix_agentd.conf.d\ServerActive.conf
+echo Server=127.0.0.1> c:\zabbix\zabbix_agentd.conf.d\Server.conf
+echo ServerActive=ec2-1-2-3-4.us-west-2.compute.amazonaws.com> c:\zabbix\zabbix_agentd.conf.d\ServerActive.conf
 echo HostMetadata=WindowsWorkstationActive> c:\zabbix\zabbix_agentd.conf.d\HostMetadata.conf
-
 ```
-
