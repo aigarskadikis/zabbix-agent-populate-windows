@@ -19,12 +19,16 @@ if not "%ProgramFiles(x86)%"=="" (
 echo this is 64-bit machine
 "%~dp07z.exe" e "%~dp0zabbix_agents-4.0.7-win-amd64.zip" "-o%dest%" bin\zabbix_agentd.exe -r -y
 "%~dp07z.exe" e "%~dp0zabbix_agents-4.0.7-win-amd64.zip" "-o%dest%" conf\zabbix_agentd.conf -r -y
+"%~dp07z.exe" e "%~dp0zabbix_agents-4.0.7-win-amd64.zip" "-o%dest%" bin\zabbix_get.exe -r -y
+"%~dp07z.exe" e "%~dp0zabbix_agents-4.0.7-win-amd64.zip" "-o%dest%" bin\zabbix_sender.exe -r -y
 )
 
 if "%ProgramFiles(x86)%"=="" (
 echo this is 32-bit machine
 "%~dp07z.exe" e "%~dp0zabbix_agents-4.0.7-win-i386.zip" "-o%dest%" bin\zabbix_agentd.exe -r -y
 "%~dp07z.exe" e "%~dp0zabbix_agents-4.0.7-win-i386.zip" "-o%dest%" conf\zabbix_agentd.conf -r -y
+"%~dp07z.exe" e "%~dp0zabbix_agents-4.0.7-win-i386.zip" "-o%dest%" bin\zabbix_get.exe -r -y
+"%~dp07z.exe" e "%~dp0zabbix_agents-4.0.7-win-i386.zip" "-o%dest%" bin\zabbix_sender.exe -r -y
 )
 
 if exist "%dest%\zabbix_agentd.conf" (
