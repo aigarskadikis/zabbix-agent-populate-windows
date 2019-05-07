@@ -1,5 +1,5 @@
 @echo off
-net session 1>NUL 2>NUL || (Echo This script requires elevated rights. & Exit /b 1)
+net session 1>NUL 2>NUL || (Echo Please run this script as administrator & Exit /b 1)
 
 setlocal EnableDelayedExpansion
 
