@@ -43,7 +43,7 @@ This script will automatically detect (based on record inside registry) where th
 replace-agent-respecting-installation-path.cmd
 ```
 
-## install agent on fresh system
+## Install Zabbix agent on fresh system
 
 Make sure there are some zip archives placed side by side with the scripting files like:
 ```
