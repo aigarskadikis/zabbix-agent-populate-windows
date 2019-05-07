@@ -1,5 +1,5 @@
 @echo off
-if "%1"=="" set version=4.2
+if "%1"=="" set version=4.0.7
 if not "%1"=="" set version=%1
 if "%2"=="" set sec="amd64.zip\|i386.zip"
 if not "%2"=="" set sec="%2"

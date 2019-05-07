@@ -1,15 +1,15 @@
-# Zabbix agent deployment for windows
+# Zabbix agent populate for windows
 
 This project contains multiple scripts how to detect, install, replace and maintain Zabbix agent for Windows systems. It will use additional libraries (sed.exe, libiconv2.dll, libintl3.dll, regex2.dll, grep.exe, pcre3.dll) to format the received content. This libraries must be side by side with other *.cmd scripts.
 
 ## Download agent through command line
 
-The very light version through command line
+Download the very light version:
 ```
 download-zabbix-agent.cmd 4.0.7
 ```
 
-Agent with the encryption feature can be obtained
+Agent with the encryption feature can be initiating:
 ```
 download-zabbix-agent.cmd 4.0.7 openssl
 ```
@@ -37,7 +37,7 @@ zabbix_agentd.exe             8264 Services                   0     11 016 K
 ```
 
 ## Replace agent file
-This script will automatically detect (based on record inside registry) where the agent is installed.
+This script will automatically detect (based on record inside registry) where the agent is installed. Quite flexible!
 
 ```
 replace-agent-respecting-installation-path.cmd
@@ -57,3 +57,12 @@ Install agent
 ```
 install-zabbix-agent-flexible.cmd
 ```
+
+Set dynamics (can be populated through group policy):
+```
+echo Server=ip.or.dns.address> c:\zabbix\zabbix_agentd.conf.d\Server.conf
+echo ServerActive=ip.or.dns.address> c:\zabbix\zabbix_agentd.conf.d\ServerActive.conf
+echo HostMetadata=WindowsWorkstationActive> c:\zabbix\zabbix_agentd.conf.d\HostMetadata.conf
+
+```
+

@@ -61,3 +61,4 @@ TASKLIST | findstr "zabbix_agentd.exe"
 )
 
 endlocal
+pause

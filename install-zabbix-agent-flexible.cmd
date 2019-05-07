@@ -31,6 +31,11 @@ echo.
 echo setting up dynamic host name
 "%~dp0sed.exe" -i "/^Hostname=.*$/d" "%dest%\zabbix_agentd.conf"
 
+echo.
+echo removing Server and ServerActive. These attributes will be handled through zabbix_agentd.conf.d
+"%~dp0sed.exe" -i "/^Server=.*$/d" "%dest%\zabbix_agentd.conf"
+"%~dp0sed.exe" -i "/^ServerActive=.*$/d" "%dest%\zabbix_agentd.conf"
+
 rem remove last backslash if exist
 for /f "tokens=*" %%z in ('^
 echo %dest%^|
