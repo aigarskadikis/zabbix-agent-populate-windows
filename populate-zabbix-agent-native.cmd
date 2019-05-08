@@ -8,8 +8,8 @@ rem to succesfully work with !errorlevel!
 setlocal EnableDelayedExpansion
 
 rem checks if zabbix service is installed
-sc query "Zabbix Agent" > nul 2>&1
-if not !errorlevel!==0 (
+sc query "Zabbix Agent" | findstr "does not exist"> nul 2>&1
+if !errorlevel!==0 (
 
 rem create a destination directory to install Zabbix Agent service
 if not exist "%zabbix%" md "%zabbix%"
