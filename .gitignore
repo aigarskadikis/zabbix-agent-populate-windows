@@ -1,6 +1,3 @@
 
 *.zip
-zabbix_agentd.exe
-zabbix_get.exe
 zabbix_sender.dll
-zabbix_sender.exe
