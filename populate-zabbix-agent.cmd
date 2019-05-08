@@ -1,5 +1,7 @@
 @echo off
 
+net session 1>NUL 2>NUL || (Echo Please run this script as administrator & Exit /b 1)
+
 rem set where the zabbix agent will be deployed 'c:\zabbix' is more recommended
 set zabbix=%systemdrive%\zabbix
 rem zabbix=%programfiles%\Zabbix Agent
@@ -47,3 +49,5 @@ if not !errorlevel!==0 echo Cannot start Zabbix Agent service. Result code !erro
 ) else echo Zabbix Agent already exist
 
 endlocal
+
+pause
