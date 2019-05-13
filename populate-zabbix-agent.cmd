@@ -49,5 +49,3 @@ if not !errorlevel!==0 echo Cannot start Zabbix Agent service. Result code !erro
 ) else echo Zabbix Agent already exist
 
 endlocal
-
-pause

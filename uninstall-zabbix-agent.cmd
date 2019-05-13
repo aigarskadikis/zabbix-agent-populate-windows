@@ -11,5 +11,3 @@ sc delete "Zabbix Agent"
 ) else echo Zabbix Agent not installed
 
 endlocal
-
-pause
