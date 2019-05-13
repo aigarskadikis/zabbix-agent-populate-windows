@@ -14,19 +14,32 @@ populate-zabbix-agent-native.cmd
 ```
 
 'zabbix_get.exe' and 'zabbix_sender.exe' are optional.
-Make sure to replace 'ServerActive=' field and 'Server=' with your zabbix servers DNS or IP addres
 
-To install the agent open 'populate-zabbix-agent.cmd' and specify the destination for agent:
+## Installation
+Open 'zabbix_agentd.conf' and make sure to replace set the right IP address or DNS name for
+```
+ServerActive=
+Server=
+```
+
+Open 'populate-zabbix-agent.cmd' and specify the destination for agent:
 ```
 set zabbix=%systemdrive%\zabbix
 ```
 
-Then run
+Run:
 ```
 populate-zabbix-agent.cmd
 ```
+
+## Delete agent
 
 To delete the already running agent 
 ```
 uninstall-zabbix-agent.cmd
 ```
+
+## Download very latest version
+
+https://www.zabbix.com/download_agents
+
