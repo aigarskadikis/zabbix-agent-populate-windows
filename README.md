@@ -45,7 +45,7 @@ To delete the already running agent
 uninstall.cmd
 ```
 
-## Custom configuration made to conf\zabbix_agentd.conf
+## Custom settings for conf\zabbix_agentd.conf
 
 Latest options/settings can found here:
 
@@ -75,7 +75,7 @@ BufferSize=65535
 
 ### Remove
 
-1) To automatically register Agent host in zabbix as the %computername% for machine delete the line:
+1) To automatically register Agent host in zabbix as the %computername% for machine, delete the line:
 ```
 Hostname=Windows host
 ```
@@ -111,4 +111,4 @@ win64\zabbix_agentd.exe
 set version=5.0.1
 ```
 
-
+In case you forgot to update version variable in 'populate.cmd', the script will still work fine. But underneath the hood, the agent will get reinstalled every time the computer boots up.
