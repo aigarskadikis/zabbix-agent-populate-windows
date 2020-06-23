@@ -68,7 +68,7 @@ with:
 LogFile=c:\zabbix\zabbix_agentd.log
 ```
 
-2) To capture more metrics in memory for 'Zabbix agent (active)' checks in case of machine goes offline:
+2) To capture more metrics in memory for 'Zabbix agent (active)' checks in case of machine goes offline replace:
 ```
 # BufferSize=100
 ```
