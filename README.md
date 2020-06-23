@@ -10,7 +10,9 @@ win64\zabbix_agentd.exe
 win64\zabbix_get.exe
 win64\zabbix_sender.exe
 conf\zabbix_agentd.conf
-populate-zabbix-agent-native.cmd
+populate.cmd
+uninstall.cmd
+upgrade.cmd
 ```
 
 'zabbix_get.exe' and 'zabbix_sender.exe' are optional.
@@ -22,22 +24,76 @@ ServerActive=
 Server=
 ```
 
-Open 'populate-zabbix-agent.cmd' and specify the destination for agent:
+Open 'populate.cmd' and specify the destination for agent:
 ```
 set zabbix=%systemdrive%\zabbix
 ```
 
+Specify the version which is located in 'Win32' and 'Win64' directory:
+```
+set version=5.0.1
+```
+
+
 Run:
 ```
-populate-zabbix-agent.cmd
+populate.cmd
 ```
 
 ## Delete agent
 
 To delete the already running agent 
 ```
-uninstall-zabbix-agent.cmd
+uninstall.cmd
 ```
+
+## Custom configuration made to conf\zabbix_agentd.conf
+
+Latast options/settings can found here:
+
+https://git.zabbix.com/projects/ZBX/repos/zabbix/browse/conf/zabbix_agentd.win.conf
+
+### Replace
+
+1) Location of log file. Replace:
+```
+LogFile=c:\zabbix_agentd.log
+```
+with:
+```
+LogFile=c:\zabbix\zabbix_agentd.log
+```
+
+2) To capture more metrics for in memory for 'Zabbix agent (active)' checks if machine has lost network connectivity replace:
+```
+# BufferSize=100
+```
+with:
+```
+# BufferSize=100
+BufferSize=65535
+```
+
+
+### Remove
+
+1) To automatically register agent host in zabbix as the %computername% for machine delete the line:
+```
+Hostname=Windows host
+```
+
+### Add
+
+1) To classify machines by Operating System using HostMetadata field enable:
+```
+HostMetadataItem=wmi.get[root\cimv2,select Caption from Win32_OperatingSystem]
+```
+
+2) To allow to pick up UserParameters from external dirctory:
+```
+Include=c:\zabbix\zabbix_agentd.conf.d\*.conf
+```
+
 
 ## Download very latest version
 
