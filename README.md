@@ -21,7 +21,7 @@ upgrade.cmd
 
 'zabbix_get.exe' and 'zabbix_sender.exe' are optional.
 
-## Installation
+## Configuration
 Open 'zabbix_agentd.conf' and make sure to set the right IP address or DNS name for Zabbix master server or Zabbix proxy:
 ```
 ServerActive=
@@ -36,12 +36,6 @@ set zabbix=%systemdrive%\zabbix
 Specify the version which is located in 'Win32' and 'Win64' directory:
 ```
 set version=5.0.1
-```
-
-
-Run:
-```
-populate.cmd
 ```
 
 ## Delete agent
@@ -97,6 +91,13 @@ HostMetadataItem=wmi.get[root\cimv2,select Caption from Win32_OperatingSystem]
 ```
 Include=c:\zabbix\zabbix_agentd.conf.d\*.conf
 ```
+
+## Installation
+Run:
+```
+populate.cmd
+```
+
 
 ## Maintenance cost
 
